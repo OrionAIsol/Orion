@@ -1,0 +1,140 @@
+.settings-page {
+    background: transparent;
+    min-height: 100vh;
+    color: var(--text-primary);
+}
+
+.settings-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 2rem 4rem;
+}
+
+.settings-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.settings-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.settings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.settings-card {
+    background: rgba(16, 22, 39, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(66, 103, 178, 0.2);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.settings-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.settings-card h2 {
+    color: var(--accent-color);
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
+
+.setting-item {
+    margin-bottom: 1.5rem;
+}
+
+.setting-item label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.setting-item input[type="range"],
+.setting-item input[type="text"],
+.setting-item select {
+    width: 100%;
+    padding: 0.8rem;
+    background: rgba(16, 22, 39, 0.5);
+    border: 1px solid rgba(66, 103, 178, 0.2);
+    border-radius: 4px;
+    color: var(--text-primary);
+}
+
+.setting-item.checkbox label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.settings-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.save-button,
+.reset-button {
+    padding: 1rem 3rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+}
+
+.save-button {
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    border: none;
+    color: white;
+}
+
+.reset-button {
+    background: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+.notification {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 1rem 2rem;
+    background: rgba(16, 22, 39, 0.9);
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.notification.fade-out {
+    animation: slideOut 0.3s ease-in forwards;
+}
+
+@keyframes slideOut {
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+} 

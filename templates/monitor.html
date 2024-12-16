@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orion - Monitor</title>
+    <link rel="icon" type="image/png" href="images/NN.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/monitor.css">
+    <link rel="stylesheet" href="css/background.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="monitor-page">
+    <div class="animated-background"></div>
+    <div class="grid-overlay"></div>
+    
+    <nav class="main-nav">
+        <div class="nav-left">
+            <span class="terminal-icon">›_</span>Orion
+        </div>
+        <div class="nav-links">
+            <a href="main.html">Terminal</a>
+            <a href="#" class="active">Monitors</a>
+            <a href="whitepaper.html">Whitepaper</a>
+            <a href="settings.html">Settings</a>
+        </div>
+    </nav>
+
+    <div class="monitor-container">
+        <div class="monitor-header">
+            <h1>Neural Monitor</h1>
+            <p class="subtitle">Real-time blockchain analysis and pattern detection</p>
+        </div>
+
+        <div class="monitor-grid">
+            <!-- Active Monitors Section -->
+            <div class="monitor-section">
+                <h2>Active Monitors</h2>
+                <div class="active-monitors" id="activeMonitors">
+                    <!-- Active monitors will be inserted here -->
+                </div>
+                <button class="add-monitor-button" onclick="showMonitorForm()">
+                    <i class="fas fa-plus"></i> New Monitor
+                </button>
+            </div>
+
+            <!-- Monitor Form -->
+            <div class="monitor-form-container" id="monitorForm">
+                <h2>Configure Monitor</h2>
+                <form onsubmit="createMonitor(event)">
+                    <div class="form-group">
+                        <label>Minimum Volume (SOL)</label>
+                        <input type="number" id="minVolume" required min="0" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label>Market Cap Range (USD)</label>
+                        <div class="range-inputs">
+                            <input type="number" id="minMcap" placeholder="Min">
+                            <input type="number" id="maxMcap" placeholder="Max">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Webhook URL</label>
+                        <input type="url" id="webhookUrl" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Pattern Detection</label>
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="checkbox" id="detectPumps" checked>
+                                Pumps
+                            </label>
+                            <label>
+                                <input type="checkbox" id="detectDumps" checked>
+                                Dumps
+                            </label>
+                            <label>
+                                <input type="checkbox" id="detectAccumulation">
+                                Accumulation
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="submit-button">Initialize Monitor</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Real-time Stats -->
+            <div class="stats-section">
+                <h2>System Metrics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Processing Speed</h3>
+                        <div class="stat-value" id="processingSpeed">0.001ms</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Active Monitors</h3>
+                        <div class="stat-value" id="activeMonitorCount">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-brain"></i>
+                        <h3>Neural Load</h3>
+                        <div class="stat-value" id="neuralLoad">0%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/monitor.js"></script>
+</body>
+</html> 

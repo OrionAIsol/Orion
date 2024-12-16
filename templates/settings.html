@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orion - Settings</title>
+    <link rel="icon" type="image/png" href="images/NN.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/settings.css">
+    <link rel="stylesheet" href="css/background.css">
+</head>
+<body class="settings-page">
+    <div class="animated-background"></div>
+    <div class="grid-overlay"></div>
+    
+    <nav class="main-nav">
+        <div class="nav-left">
+            <span class="terminal-icon">›_</span>Orion
+        </div>
+        <div class="nav-links">
+            <a href="main.html">Terminal</a>
+            <a href="monitor.html">Monitors</a>
+            <a href="whitepaper.html">Whitepaper</a>
+            <a href="#" class="active">Settings</a>
+        </div>
+    </nav>
+
+    <div class="settings-container">
+        <div class="settings-header">
+            <h1>System Settings</h1>
+            <p class="subtitle">Configure neural monitoring parameters</p>
+        </div>
+
+        <div class="settings-grid">
+            <div class="settings-card">
+                <h2>Neural Network</h2>
+                <div class="setting-item">
+                    <label>Confidence Threshold</label>
+                    <input type="range" min="0" max="100" value="75" id="confidenceThreshold">
+                    <span class="value">75%</span>
+                </div>
+                <div class="setting-item">
+                    <label>Processing Speed</label>
+                    <select id="processingSpeed">
+                        <option value="fast">High Speed</option>
+                        <option value="balanced" selected>Balanced</option>
+                        <option value="accurate">High Accuracy</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="settings-card">
+                <h2>Alert System</h2>
+                <div class="setting-item">
+                    <label>Webhook URL</label>
+                    <input type="text" id="webhookUrl" placeholder="Discord Webhook URL">
+                </div>
+                <div class="setting-item checkbox">
+                    <label>
+                        <input type="checkbox" id="enableAlerts" checked>
+                        Enable Alerts
+                    </label>
+                </div>
+            </div>
+
+            <div class="settings-card">
+                <h2>Data Processing</h2>
+                <div class="setting-item">
+                    <label>Update Interval</label>
+                    <select id="updateInterval">
+                        <option value="1">1 second</option>
+                        <option value="5" selected>5 seconds</option>
+                        <option value="10">10 seconds</option>
+                    </select>
+                </div>
+                <div class="setting-item checkbox">
+                    <label>
+                        <input type="checkbox" id="enableCaching" checked>
+                        Enable Data Caching
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="settings-actions">
+            <button class="save-button" onclick="saveSettings()">Save Settings</button>
+            <button class="reset-button" onclick="resetSettings()">Reset Defaults</button>
+        </div>
+    </div>
+
+    <script src="js/settings.js"></script>
+</body>
+</html> 
